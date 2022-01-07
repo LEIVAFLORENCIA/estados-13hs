@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estados de los procesos a las 13hs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+        <h1>Estados de los procesos a las 13hs</h1>
+        <p>Seleccione las entidades que <strong>NO</strong> transmitieron:</p>
+        <div id="container-entidades">
+            <div id="entidades">
+
+            </div>
+            <button id="btnCorreo" onclick="{console.log(entidadesElegidas)}">Generar correo</button>
+            <button id="btnLimpiar">Limpiar selección</button>
+        </div>      
+    </div>
+    
+    <div id="container-mail" class="hidden">
+        <div id="correo">
+            <p></p>
+        </div>
+        <button id="btnCopiar" class="hidden">COPIAR</button>
+    </div>
+
+    <!--JS-->
+    <script src="funciones.js"></script>
+    <script src="app.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+</body>
+
+</html>
