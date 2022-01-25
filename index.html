@@ -17,17 +17,21 @@
             <div id="entidades">
 
             </div>
-            <button id="btnCorreo" onclick="{console.log(entidadesElegidas)}">Generar correo</button>
+            <button id="btnCorreo">Generar correo</button>
             <button id="btnLimpiar">Limpiar selección</button>
         </div>      
     </div>
     
+
     <div id="container-mail" class="hidden">
+        <p class="correo">Estimados,<br>Las siguientes entidades no han enviado información:</p>
         <div id="correo">
-            <p></p>
         </div>
-        <button id="btnCopiar" class="hidden">COPIAR</button>
+        <p class="correo">Resto de las entidades en orden.<br>Saludos cordiales.</p>
     </div>
+    <button id="btnCopiar" class="hidden">COPIAR CORREO</button>
+
+
 
     <!--JS-->
     <script src="funciones.js"></script>

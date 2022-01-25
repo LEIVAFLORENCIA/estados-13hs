@@ -1,23 +1,31 @@
 const URL = "http://localhost:3000";
 const divEntidades = document.getElementById('entidades');
-
-var checks = document.querySelectorAll('.clicked');
+let entidadesSeleccionadas = new Set()
 btnCorreo = document.getElementById('btnCorreo');
-
+const containerMail = document.getElementById('container-mail')
+const correo = document.getElementById('correo')
+const btnClean = document.getElementById('btnLimpiar')
+const btnCopy = document.getElementById('btnCopiar')
+let btnSeleccionados = []
 
 renderEntidades();
 
 divEntidades.addEventListener('click', elegirEntidad);
-btnCorreo.addEventListener('click', generarCorreo)
+btnCorreo.addEventListener('click', generarCorreo);
+btnClean.addEventListener('click', limpiarSeleccion)
 
-async function elegirEntidad(e) {
+btnCopy.addEventListener('click', e=>{
+    navigator.clipboard.writeText(containerMail.innerText);
+    alert("Copiado exitosamente!")
+})
+
+function elegirEntidad(e) {
     buttonElegido = e.target;
 
     try {
-        let entidades = await buscarEntidades();
-
         if (e.target.tagName == "BUTTON") {
             buttonElegido.classList.toggle("clicked");
+            btnSeleccionados.push(buttonElegido)
         }
     }
     catch (err) {
@@ -25,10 +33,30 @@ async function elegirEntidad(e) {
     }
 }
 
-async function generarCorreo(e){
+async function generarCorreo(e) {
 
-   checks.forEach(check=> {console.log(check)})
+    entidadesSeleccionadas = [...document.querySelectorAll('.clicked')].map(i => i.innerHTML)
+    let arr = [...entidadesSeleccionadas]
 
-    
+    let entidades = await buscarEntidades();
 
+    containerMail.classList.remove('hidden')
+    btnCopy.classList.remove('hidden')
+
+    arr.map(e => {
+        entidades.map(en => {
+            if (e == en.entidad) {
+                let p = document.createElement('p')
+                p.innerText = en.entidad + ' ' + en.nombre;
+                p.classList.add('correo');
+                correo.appendChild(p)
+            }
+        })
+    })
+}
+
+function limpiarSeleccion(e){
+    console.log(btnSeleccionados)
+    btnSeleccionados.map(btn => btn.classList.remove('clicked'))
+    entidadesSeleccionadas = []
 }

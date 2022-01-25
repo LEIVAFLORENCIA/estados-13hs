@@ -28,6 +28,12 @@ p{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 13px;
     margin: 20px 10px;
+
+}
+
+#container-mail{
+    width: 400px;
+    height: auto;
 }
 
 button{
@@ -50,7 +56,7 @@ button:hover{
 }
 
 #btnCorreo{
-    width: 45%;
+    width: 59%;
     background-color: #f6ffdf;
 }
 #btnCorreo:hover{
@@ -59,10 +65,25 @@ button:hover{
 }
 
 #btnLimpiar{
-    width: 45%;    
+    width: 40%;    
     background-color: #ffe3e3;
 }
 #btnLimpiar:hover{
     background-color: #ffcece;
     transition: 0.2s;
+}
+
+#btnCopiar{
+    width: auto;
+    flex-wrap: wrap;
+}
+.correo{
+    text-align: left;
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 14px;
+    color: black;
+}
+
+.hidden{
+    display: none;
 }
